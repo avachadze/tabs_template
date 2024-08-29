@@ -37,7 +37,7 @@ function FormularioPrecios({ handleSubmit, onSubmit, buscar, actual, register })
                 </div>
             </div>
             <div className='flex justify-start w-full gap-3 mt-3'>
-                <button type="submit" className='p-4 font-semibold text-white bg-orange-500 my-3 rounded  dark:bg-pink-600 dark:hover:bg-pink-700 dark:text-white' >
+                <button type="submit" className='p-4 font-semibold text-white bg-slate-700 my-3 rounded  dark:bg-pink-600 dark:hover:bg-pink-700 dark:text-white' >
                     Actualizar
                 </button>
             </div>
