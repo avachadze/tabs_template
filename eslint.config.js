@@ -20,10 +20,11 @@ export default [
     settings: { react: { version: '18.3' } },
     plugins: {
       react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+/*       'react-hooks': reactHooks,
+      'react-refresh': reactRefresh, */
     },
     rules: {
+      "react/prop-types": "off",
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
