@@ -1,11 +1,6 @@
 import { FaCheckCircle } from "react-icons/fa";
 import Inicio from "./secciones/Inicio";
-import Incluido from "./secciones/Incluido";
-import Descripcion from "./secciones/Descripcion";
 import { useState } from "react";
-import { FaBookOpen } from "react-icons/fa";
-import { FaCheckDouble } from "react-icons/fa";
-import Calendario from "./secciones/Calendario";
 import { IoIosHappy } from "react-icons/io";
 import { FaRegCopyright } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
@@ -13,71 +8,20 @@ import DarkThemeSwitcher from "./DarkThemeSwitcher";
 
 function Home() {
   const [isDark, setDark] = useState(); //Variable para mirar en que tema estoy
-  const [toggle, setToggle] = useState("TAB_incluido"); //Variable para mostrar siguiente componente
+  const [toggle, setToggle] = useState("TAB_inicio"); //Variable para mostrar siguiente componente
 
   const opciones = [
     {
       id: "TAB_inicio", //ID de componente actual
       texto: "Inicio", //texto lista de componente
-      siguiente: "TAB_descripcion", //ID de siguiente componente
+      siguiente: "TAB_inicio", //ID de siguiente componente
       descripcionTitulo: "Bienvenido al programa de carga de Viajes", //titulo dentro de componente
       descripcion: "Selecciona lo que quieras hacer", //descripción de titulo
       icon: <FaCheckCircle />, //icono de la lista
       next: next, //funcioón para basar al siguiente
       contenido: <Inicio buscar={buscar} next={next} actual={"TAB_inicio"} />, //componente a mostrar
     },
-    {
-      id: "TAB_descripcion",
-      texto: "Descripción",
-      siguiente: "TAB_incluido",
-      descripcionTitulo: "Descripcion",
-      descripcion: "detalles importantes",
-      icon: <FaBookOpen />,
-      next: next,
-      contenido: (
-        <Descripcion
-          buscar={buscar}
-          next={next}
-          actual={"TAB_descripcion"}
-          isDark={isDark}
-        />
-      ),
-    },
-    {
-      id: "TAB_incluido",
-      texto: "Incluido / no",
-      siguiente: "TAB_prueba",
-      descripcionTitulo: "Incluido/ No incluido",
-      descripcion:
-        "Si el servicio no está seleccionado, el cliente lo verá como no incluido.",
-      icon: <FaCheckDouble />,
-      next: next,
-      contenido: (
-        <Incluido
-          buscar={buscar}
-          next={next}
-          actual={"TAB_incluido"}
-          isDark={isDark}
-        />
-      ),
-    },
-    {
-      id: "TAB_prueba",
-      texto: "Prueba",
-      siguiente: "TAB_incluido",
-      descripcionTitulo: "Calendario de precios",
-      descripcion: "Esta es la seccion de prueba",
-      icon: <IoIosHappy />,
-      next: next,
-      contenido: (
-        <Calendario
-          buscar={buscar}
-          next={next}
-          actual={"TAB_prueba"}
-          isDark={isDark}
-        />
-      ),
-    },
+   
   ];
   let encontrado;
   function buscar(opcion_actual) {
