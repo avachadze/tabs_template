@@ -1,10 +1,9 @@
-import {useState} from "react";
+import { useState } from "react";
+import { BsFillExclamationOctagonFill } from "react-icons/bs";
 
 function FormularioModificarPrecios({
   handleSubmit,
   onEdit,
-  buscar,
-  actual,
   register,
   watch,
 }) {
@@ -16,6 +15,15 @@ function FormularioModificarPrecios({
   const tipoCambio = watch("tipoCambio");
   return (
     <div>
+      <div className="text-start text-sm flex">
+        <div className="dark:text-pink-500 text-orange-400 text-xl mr-3">
+          <BsFillExclamationOctagonFill />
+        </div>
+        <span>
+          El dia de inicio deberia ser el anterior y para bajar los precios hay
+          que añadir - antes del numero
+        </span>
+      </div>
       <form
         key={2}
         className="mt-4"
@@ -113,9 +121,7 @@ function FormularioModificarPrecios({
               type="number"
               id="precio_individual_incr"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={
-                cantidad
-               }
+              placeholder={cantidad}
             />
           </div>
 
@@ -131,9 +137,7 @@ function FormularioModificarPrecios({
               type="number"
               id="precio_doble_incr"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={
-               cantidad
-              }
+              placeholder={cantidad}
             />
           </div>
           <div>
@@ -148,9 +152,7 @@ function FormularioModificarPrecios({
               type="number"
               id="precio_triple_incr"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={
-                cantidad
-               }
+              placeholder={cantidad}
             />
           </div>
         </div>

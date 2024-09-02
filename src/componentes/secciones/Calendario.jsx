@@ -15,13 +15,13 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
   const [eventos, setEventos] = useState([]);
 
   const diasDeLaSemana = [
-    { day: "lunes", isToday: false, diaInt: 1 },
-    { day: "martes", isToday: false, diaInt: 2 },
-    { day: "miercoles", isToday: false, diaInt: 3 },
-    { day: "jueves", isToday: false, diaInt: 4 },
-    { day: "viernes", isToday: false, diaInt: 5 },
-    { day: "sabado", isToday: false, diaInt: 6 },
-    { day: "domingo", isToday: false, diaInt: 0 },
+    { day: "lunes", dia: false, diaInt: 1 },
+    { day: "martes", dia: false, diaInt: 2 },
+    { day: "miercoles", dia: false, diaInt: 3 },
+    { day: "jueves", dia: false, diaInt: 4 },
+    { day: "viernes", dia: false, diaInt: 5 },
+    { day: "sabado", dia: false, diaInt: 6 },
+    { day: "domingo", dia: false, diaInt: 0 },
   ];
   const { register, handleSubmit, watch } = useForm();
 
@@ -61,14 +61,15 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
         );
     }
   };
+
   function getDays(lun, mar, mie, jue, vie, sab, dom) {
-    diasDeLaSemana[0].isToday = !!lun;
-    diasDeLaSemana[1].isToday = !!mar;
-    diasDeLaSemana[2].isToday = !!mie;
-    diasDeLaSemana[3].isToday = !!jue;
-    diasDeLaSemana[4].isToday = !!vie;
-    diasDeLaSemana[5].isToday = !!sab;
-    diasDeLaSemana[6].isToday = !!dom;
+    diasDeLaSemana[0].dia = !!lun;
+    diasDeLaSemana[1].dia = !!mar;
+    diasDeLaSemana[2].dia = !!mie;
+    diasDeLaSemana[3].dia = !!jue;
+    diasDeLaSemana[4].dia = !!vie;
+    diasDeLaSemana[5].dia = !!sab;
+    diasDeLaSemana[6].dia = !!dom;
   }
 
   //Registrar un evento / precio
@@ -76,7 +77,7 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
     const d = new Date(inicio);
     let day = d.getDay();
     for (let x = 0; x < diasDeLaSemana.length; x++) {
-      if (diasDeLaSemana[x].isToday) {
+      if (diasDeLaSemana[x].dia) {
         if (diasDeLaSemana[x].diaInt === day) {
           setEventos((eventos) => [
             ...eventos,
@@ -93,7 +94,6 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
       }
     }
   }
-
   const calendarRef = useRef(null);
   //Modificaciones de precio
   const onEdit = (data) => {
@@ -230,6 +230,7 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
       const eventEnd = new Date(event.end || event.start); // Use event.end if available, otherwise use event.start
       return eventStart < endDate && eventEnd >= startDate;
     });
+
     return eventsInRange;
   };
   //buscar eventos X día
@@ -271,7 +272,7 @@ function Precios_calendario({ buscar, actual, next, isDark }) {
       <div className="mt-5 md:-mt-10">
         <FullCalendar
           selectable
-          select={function () {
+          dateClick={function () {
             toast(<div>hola</div>);
           }}
           ref={calendarRef}

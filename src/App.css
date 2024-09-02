@@ -73,3 +73,23 @@
 .hide {
   display: none;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(2, 28, 36); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  
+  background: #01aac0; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #058292; 
+}

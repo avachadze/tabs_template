@@ -13,7 +13,7 @@ import DarkThemeSwitcher from "./DarkThemeSwitcher";
 
 function Home() {
   const [isDark, setDark] = useState(); //Variable para mirar en que tema estoy
-  const [toggle, setToggle] = useState("TAB_prueba"); //Variable para mostrar siguiente componente
+  const [toggle, setToggle] = useState("TAB_incluido"); //Variable para mostrar siguiente componente
 
   const opciones = [
     {
